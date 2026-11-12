@@ -9,5 +9,5 @@ return [
 
     // Your domain once you have bought it, e.g. 'speedyconnect.co.ke'. Writes the CNAME file
     // GitHub Pages needs. Leave empty until the domain exists.
-    'domain' => '',
+    'domain' => 'speedyconnect.co.ke',
 ];
