@@ -1,0 +1,13 @@
+# Keeps the pinned GitHub Actions up to date: Dependabot opens a pull request, which runs the full
+# test and security workflow before anything can be merged and deployed.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]

@@ -17,6 +17,22 @@ The public website for Speedy Connect: one network-management product sold in fi
   the request already typed out (edition, name, business, phone, size). The visitor presses Send.
   No server, no database, and no third party sees the details before your WhatsApp does.
 
+## Security checks before every deploy
+
+The same workflow runs these on every pull request and every push to `main`, and again every
+Monday. **The site is published only if all of them pass:**
+
+| Check | What it looks for |
+|---|---|
+| Tests and build | Every page builds; no PHP or inline scripts leak into the HTML; every link resolves; each page has its security policy |
+| **CodeQL** (JavaScript, Actions) | GitHub's code scanning with the extended security queries. Findings appear under *Security → Code scanning*. |
+| **Semgrep** (PHP, JavaScript, secrets, Actions) | Known insecure patterns, including PHP, which CodeQL doesn't read |
+| **Gitleaks** | Passwords, tokens or keys anywhere in the git history |
+| **zizmor** | Unsafe GitHub Actions setups: unpinned actions, leaked credentials, script injection |
+
+Every action is pinned to an exact commit, and Dependabot (`.github/dependabot.yml`) proposes
+updates as pull requests, which go through all of the above before they can be merged.
+
 ## Settings: `site.config.php`
 
 | Setting | What it is |
