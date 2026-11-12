@@ -1,4 +1,4 @@
-/* Page script for schools.php (moved out of the page so the CSP can forbid inline scripts). */
+/* Page script for the schools page (moved out of the page so the CSP can forbid inline scripts). */
 (function(){
   var sw=document.querySelectorAll('.switch button'),scn=document.getElementById('scenes'),hint=document.getElementById('hint');
   sw.forEach(function(b){b.addEventListener('click',function(){

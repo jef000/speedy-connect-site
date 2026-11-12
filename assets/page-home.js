@@ -1,2 +1,0 @@
-/* Page script for index.php (moved out of the page so the CSP can forbid inline scripts). */
-var map={"t-isp":"isp.php","t-hot":"hotels.php","t-caf":"cafes.php","t-sch":"schools.php","t-ven":"venues.php"};document.querySelectorAll('.chip').forEach(function(c){c.setAttribute('role','link');c.tabIndex=0;function go(){location.href=map[c.dataset.t]}c.addEventListener('click',go);c.addEventListener('keydown',function(e){if(e.key==='Enter')go()});});

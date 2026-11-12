@@ -39,7 +39,7 @@ h1{font-size:96px;line-height:.92;margin-top:26px}
 
 .picker{margin:40px auto 0;max-width:980px;background:#fff;border:1px solid var(--ln);border-radius:28px;padding:22px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;box-shadow:0 30px 60px -40px rgba(20,20,24,.35)}
 .picker .lbl{font-size:22px;font-weight:650;letter-spacing:-.03em}
-.chip{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px;border-radius:999px;border:1.5px solid var(--ln);font-size:15.5px;font-weight:600;cursor:pointer;background:var(--p);transition:all .15s}
+.chip{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px;border-radius:999px;border:1.5px solid var(--ln);font-size:15.5px;font-weight:600;cursor:pointer;background:var(--p);transition:all .15s}
 .chip .d{width:10px;height:10px;border-radius:50%}
 .chip:hover{border-color:var(--ink)}
 .chip.on{background:var(--ink);color:#f4f2ec;border-color:var(--ink)}
@@ -157,11 +157,11 @@ footer .brand{font-size:15px;color:var(--ink)}
 
     <div class="picker" role="group" aria-label="Choose your business">
       <span class="lbl">I run</span>
-      <span class="chip" data-t="t-isp"><span class="d" style="background:#111215"></span>an ISP</span>
-      <span class="chip" data-t="t-hot"><span class="d" style="background:#2E5E4E"></span>a hotel</span>
-      <span class="chip" data-t="t-caf"><span class="d" style="background:#B4532A"></span>a café or restaurant</span>
-      <span class="chip" data-t="t-sch"><span class="d" style="background:#1F3A68"></span>a school</span>
-      <span class="chip" data-t="t-ven"><span class="d" style="background:#3C6E5A"></span>an office, clinic or venue</span>
+      <a class="chip" href="isp"><span class="d" style="background:#111215"></span>an ISP</a>
+      <a class="chip" href="hotels"><span class="d" style="background:#2E5E4E"></span>a hotel</a>
+      <a class="chip" href="cafes"><span class="d" style="background:#B4532A"></span>a café or restaurant</a>
+      <a class="chip" href="schools"><span class="d" style="background:#1F3A68"></span>a school</a>
+      <a class="chip" href="venues"><span class="d" style="background:#3C6E5A"></span>an office, clinic or venue</a>
     </div>
     <p class="note-under">Pick one to open its edition. Each solves a different business’s problems.</p>
   </section>
@@ -173,7 +173,7 @@ footer .brand{font-size:15px;color:var(--ink)}
     </div>
 
     <div class="bento">
-      <a class="t isp" id="t-isp" href="isp.html">
+      <a class="t isp" id="t-isp" href="isp">
         <div class="k">Internet service providers</div>
         <h3>Every shilling matched.<br>Every router <em>watched.</em></h3>
         <p class="sub">M-Pesa lands on the right customer by itself, lapsed lines pause each morning, and a router that goes quiet emails you first.</p>
@@ -195,7 +195,7 @@ footer .brand{font-size:15px;color:var(--ink)}
         <span class="go">Speedy Connect for ISPs →</span>
       </a>
 
-      <a class="t hot" id="t-hot" href="hotels.html">
+      <a class="t hot" id="t-hot" href="hotels">
         <div class="k">Hotels &amp; lodges</div>
         <h3>Wi-Fi that checks in and out with your guests.</h3>
         <div class="obj" style="min-height:170px">
@@ -204,7 +204,7 @@ footer .brand{font-size:15px;color:var(--ink)}
         <span class="go" style="color:#2E5E4E">Speedy Connect for Hotels →</span>
       </a>
 
-      <a class="t caf" id="t-caf" href="cafes.html">
+      <a class="t caf" id="t-caf" href="cafes">
         <div class="k">Restaurants &amp; cafés</div>
         <h3>Free Wi-Fi that brings them <span>back.</span></h3>
         <div class="obj" style="min-height:170px">
@@ -214,7 +214,7 @@ footer .brand{font-size:15px;color:var(--ink)}
         <span class="go" style="color:#B4532A">for Cafés →</span>
       </a>
 
-      <a class="t sch" id="t-sch" href="schools.html">
+      <a class="t sch" id="t-sch" href="schools">
         <div class="k">Schools &amp; universities</div>
         <h3>Every student signs in as themselves.</h3>
         <div class="obj">
@@ -231,7 +231,7 @@ footer .brand{font-size:15px;color:var(--ink)}
         <span class="go" style="color:#1F3A68">for Schools →</span>
       </a>
 
-      <a class="t ven" id="t-ven" href="venues.html">
+      <a class="t ven" id="t-ven" href="venues">
         <div class="k">Offices, clinics &amp; venues</div>
         <h3>A code for every room, desk and visitor.</h3>
         <div class="obj">
@@ -280,5 +280,4 @@ footer .brand{font-size:15px;color:var(--ink)}
 </div>
 <?php site_footer(); ?>
 <script src="assets/site.js"></script>
-<script src="assets/page-home.js"></script>
 </body></html>

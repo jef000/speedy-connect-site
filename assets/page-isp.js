@@ -1,4 +1,4 @@
-/* Page script for isp.php (moved out of the page so the CSP can forbid inline scripts). */
+/* Page script for the isp page (moved out of the page so the CSP can forbid inline scripts). */
 (function(){
   /* today / with switch */
   var sw=document.querySelectorAll('.switch button'),scn=document.getElementById('scenes'),hint=document.getElementById('hint');

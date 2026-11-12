@@ -1,4 +1,4 @@
-/* Page script for cafes.php (moved out of the page so the CSP can forbid inline scripts). */
+/* Page script for the cafes page (moved out of the page so the CSP can forbid inline scripts). */
 var sw=document.querySelectorAll('.switch button'),scn=document.getElementById('scenes'),hint=document.getElementById('hint');
 sw.forEach(function(b){b.addEventListener('click',function(){var w=b.dataset.mode==='with';sw.forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});scn.classList.toggle('fixed',w);hint.textContent=w?'This is your café on Speedy Connect.':'← You\'re looking at today. Try the switch.';});});
 

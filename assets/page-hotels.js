@@ -1,4 +1,4 @@
-/* Page script for hotels.php (moved out of the page so the CSP can forbid inline scripts). */
+/* Page script for the hotels page (moved out of the page so the CSP can forbid inline scripts). */
 (function(){var el=document.getElementById('qr1');var n=21,s=7;function f(r,c){var a=[[0,0],[0,14],[14,0]];for(var i=0;i<3;i++){var R=r-a[i][0],C=c-a[i][1];if(R>=0&&R<7&&C>=0&&C<7)return(R==0||R==6||C==0||C==6||(R>1&&R<5&&C>1&&C<5))?1:0}return -1}
 for(var r=0;r<n;r++)for(var c=0;c<n;c++){var v=f(r,c);if(v<0){s=(s*1103515245+12345)&0x7fffffff;v=(s>>16)&1}var i=document.createElement('i');i.style.background=v?'#1E2A26':'transparent';el.appendChild(i)}})();
 

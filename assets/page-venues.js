@@ -1,4 +1,4 @@
-/* Page script for venues.php (moved out of the page so the CSP can forbid inline scripts). */
+/* Page script for the venues page (moved out of the page so the CSP can forbid inline scripts). */
 (function(){
   /* hero: "Your venue" swaps the floor plan */
   var V={

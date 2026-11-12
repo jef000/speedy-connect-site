@@ -46,27 +46,27 @@ function editions(): array
 {
     return [
         'isp' => [
-            'file' => 'isp.html', 'name' => 'for ISPs', 'short' => 'ISPs', 'color' => '#111215', 'icon' => '◎',
+            'path' => 'isp', 'name' => 'for ISPs', 'short' => 'ISPs', 'color' => '#111215', 'icon' => '◎',
             'sub' => 'Sell internet: M-Pesa billing, hotspot and home lines, routers watched',
             'edition' => 'ISP', 'size_label' => 'How many routers?', 'size_default' => '3–10',
         ],
         'hotels' => [
-            'file' => 'hotels.html', 'name' => 'for Hotels', 'short' => 'Hotels', 'color' => '#2E5E4E', 'icon' => '⌂',
+            'path' => 'hotels', 'name' => 'for Hotels', 'short' => 'Hotels', 'color' => '#2E5E4E', 'icon' => '⌂',
             'sub' => 'Wi-Fi that follows the booking, event codes, OPERA',
             'edition' => 'Hotel', 'size_label' => 'How many rooms?', 'size_default' => '21–60',
         ],
         'cafes' => [
-            'file' => 'cafes.html', 'name' => 'for Cafés & restaurants', 'short' => 'Cafés', 'color' => '#B4532A', 'icon' => '☕',
+            'path' => 'cafes', 'name' => 'for Cafés & restaurants', 'short' => 'Cafés', 'color' => '#B4532A', 'icon' => '☕',
             'sub' => 'A free hour in one tap, and offers that bring guests back',
             'edition' => 'Café', 'size_label' => 'How many seats?', 'size_default' => '31–80',
         ],
         'schools' => [
-            'file' => 'schools.html', 'name' => 'for Schools', 'short' => 'Schools', 'color' => '#1F3A68', 'icon' => '✎',
+            'path' => 'schools', 'name' => 'for Schools', 'short' => 'Schools', 'color' => '#1F3A68', 'icon' => '✎',
             'sub' => 'Student sign-in, study hours, lights-out and blocked sites',
             'edition' => 'School', 'size_label' => 'How many students?', 'size_default' => '500–2,000',
         ],
         'venues' => [
-            'file' => 'venues.html', 'name' => 'for Venues', 'short' => 'Venues', 'color' => '#3C6E5A', 'icon' => '▦',
+            'path' => 'venues', 'name' => 'for Venues', 'short' => 'Venues', 'color' => '#3C6E5A', 'icon' => '▦',
             'sub' => 'Offices, clinics, churches, event spaces: a code for every room',
             'edition' => 'Venue', 'size_label' => 'How many people use the Wi-Fi on a busy day?', 'size_default' => '51–200',
         ],
@@ -101,7 +101,7 @@ function site_header(string $current): void
 
     $menu = '';
     foreach ($eds as $id => $ed) {
-        $menu .= '<a href="' . e($ed['file']) . '"' . ($id === $current ? ' class="sc-here" aria-current="page"' : '') . '>'
+        $menu .= '<a href="' . e($ed['path']) . '"' . ($id === $current ? ' class="sc-here" aria-current="page"' : '') . '>'
             . '<span class="sq" style="background:' . e($ed['color']) . '">' . e($ed['icon']) . '</span>'
             . '<span><b>Speedy Connect ' . e($ed['name']) . '</b><small>' . e($ed['sub']) . '</small></span></a>';
     }
@@ -110,7 +110,7 @@ function site_header(string $current): void
     if ($here !== null) {
         $strip = '<div class="sc-strip"><div class="sc-w"><span class="lbl">Editions</span>';
         foreach ($eds as $id => $ed) {
-            $strip .= '<a href="' . e($ed['file']) . '"'
+            $strip .= '<a href="' . e($ed['path']) . '"'
                 . ($id === $current ? ' class="sc-here" aria-current="page" style="--ed:' . e($ed['color']) . '"' : '') . '>'
                 . '<span class="d" style="background:' . e($ed['color']) . '"></span>' . e($ed['short']) . '</a>';
         }
@@ -133,7 +133,7 @@ function site_footer(): void
 {
     $links = '';
     foreach (editions() as $ed) {
-        $links .= '<a href="' . e($ed['file']) . '">' . e($ed['short']) . '</a>';
+        $links .= '<a href="' . e($ed['path']) . '">' . e($ed['short']) . '</a>';
     }
     echo '<footer class="sc-foot"><div class="sc-w"><div class="sc-cols">'
         . '<div><span class="sc-brand"><i>⌁</i>Speedy Connect</span><p>Network management for every business that runs a network: ISPs, hotels, cafés, schools and venues. Made in Nairobi.</p></div>'

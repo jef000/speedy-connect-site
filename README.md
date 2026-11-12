@@ -71,7 +71,7 @@ Both values appear on the public site, so neither is secret.
 
 ```sh
 php build.php                      # builds _site/
-php -S localhost:8080 -t _site     # open http://localhost:8080/
+php -S localhost:8080 -t _site serve.php   # open http://localhost:8080/ (serves /hotels like Pages does)
 php tests/run.php                  # checks every page, link and form
 ```
 
