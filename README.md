@@ -8,8 +8,11 @@ The public website for Speedy Connect: one network-management product sold in fi
 
 - `pages/*.php` are the six pages. They use PHP only as templates: the shared top bar, Editions
   menu, edition strip and footer come from `src/site.php`, so they are written once.
-- `build.php` turns them into plain HTML in `_site/`. **GitHub Actions** runs the tests, builds,
-  and publishes to Pages on every push to `main` (`.github/workflows/pages.yml`).
+- `build.php` turns them into plain HTML in `_site/`. **GitHub Actions**
+  (`.github/workflows/pages.yml`):
+  - **Pull request into `main`:** runs the tests and the build, and publishes nothing.
+  - **Anything that lands on `main`** (a merged pull request or a direct push): tests, builds and
+    publishes to Pages. A broken build never replaces the live site.
 - **Book a demo** checks the visitor's details, then opens WhatsApp to your business number with
   the request already typed out (edition, name, business, phone, size). The visitor presses Send.
   No server, no database, and no third party sees the details before your WhatsApp does.
