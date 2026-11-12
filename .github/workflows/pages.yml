@@ -1,19 +1,16 @@
-# Builds the site with PHP and publishes it to GitHub Pages on every push to main.
+# Pull requests into main: test and build only, nothing is published.
+# Anything that lands on main (a merged pull request or a direct push): test, build, publish to Pages.
 name: Publish site
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -26,13 +23,23 @@ jobs:
         run: php tests/run.php
       - name: Build
         run: php build.php --strict
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload the site for Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   deploy:
     needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    # One deployment at a time; a newer push waits rather than cancelling a deploy in progress.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
