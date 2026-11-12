@@ -1,0 +1,55 @@
+/* Speedy Connect company site: shared chrome (top bar, Editions menu, edition strip, footer).
+   Every class is prefixed sc- so edition pages can style their own world freely. */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500;600&display=swap");
+
+.sc-top{position:sticky;top:0;z-index:40;background:#f4f1ea;border-bottom:1px solid rgba(20,20,24,.08);font-family:Geist,system-ui,sans-serif;color:#141418}
+.sc-top *{box-sizing:border-box}
+.sc-w{max-width:1160px;margin:0 auto;padding:0 32px}
+.sc-bar{display:flex;align-items:center;height:64px;gap:8px}
+.sc-brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16px;letter-spacing:-.02em;color:#141418;text-decoration:none}
+.sc-brand i{width:24px;height:24px;border-radius:7px;background:#E8A33D;display:grid;place-items:center;font-style:normal;font-size:12px;color:#141418}
+.sc-links{display:flex;gap:2px;margin:0 auto;font-size:14px;align-items:center}
+.sc-links > a,.sc-ed > button{color:rgba(20,20,24,.62);padding:8px 13px;border-radius:999px;text-decoration:none;background:none;border:0;font:inherit;cursor:pointer}
+.sc-links > a:hover,.sc-ed > button:hover,.sc-ed > button[aria-expanded=true]{background:#ebe6db;color:#141418}
+.sc-ed{position:relative}
+.sc-ed > button.sc-cur{color:#141418;font-weight:600}
+.sc-dd{display:none;position:absolute;top:46px;left:50%;transform:translateX(-50%);width:640px;background:#fff;border:1px solid rgba(20,20,24,.1);border-radius:20px;padding:10px;box-shadow:0 30px 60px -24px rgba(20,20,24,.35);grid-template-columns:1fr 1fr;gap:4px}
+.sc-ed > button[aria-expanded=true] + .sc-dd{display:grid}
+.sc-dd .sc-ddh{grid-column:span 2;padding:10px 12px 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(20,20,24,.5);font-weight:600}
+.sc-dd a{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px;border-radius:14px;align-items:center;text-decoration:none;color:#141418}
+.sc-dd a:hover,.sc-dd a.sc-here{background:#f4f1ea}
+.sc-dd .sq{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#fff;font-size:17px}
+.sc-dd b{display:block;font-size:14.5px;font-weight:600}
+.sc-dd small{display:block;color:rgba(20,20,24,.58);font-size:12.5px;margin-top:2px;line-height:1.35}
+.sc-dd .sc-all{grid-column:span 2;border-top:1px solid rgba(20,20,24,.08);margin-top:4px;border-radius:0 0 12px 12px;padding:12px;font-size:13.5px;font-weight:600;display:block}
+.sc-cta{height:40px;padding:0 18px;border-radius:999px;background:#141418;color:#f4f2ec;display:inline-flex;align-items:center;font-weight:600;font-size:14px;text-decoration:none}
+
+/* edition strip: shows on edition pages, one click to any other solution */
+.sc-strip{border-top:1px solid rgba(20,20,24,.06);background:#fbf9f5}
+.sc-strip .sc-w{display:flex;align-items:center;gap:6px;height:48px;overflow-x:auto;scrollbar-width:none}
+.sc-strip .sc-w::-webkit-scrollbar{display:none}
+.sc-strip .lbl{font-size:12px;color:rgba(20,20,24,.5);margin-right:6px;white-space:nowrap}
+.sc-strip a{display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 13px;border-radius:999px;font-size:13px;font-weight:500;color:rgba(20,20,24,.7);text-decoration:none;white-space:nowrap;border:1px solid transparent}
+.sc-strip a .d{width:8px;height:8px;border-radius:50%}
+.sc-strip a:hover{border-color:rgba(20,20,24,.15)}
+.sc-strip a.sc-here{background:var(--ed,#141418);color:#fff}
+.sc-strip a.sc-here .d{background:#fff!important}
+
+.sc-foot{font-family:Geist,system-ui,sans-serif;background:#111215;color:rgba(244,242,236,.62);padding:56px 0 32px;margin-top:0}
+.sc-foot .sc-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.sc-foot b{display:block;color:#f4f2ec;font-size:13px;margin-bottom:12px;font-weight:600}
+.sc-foot a{display:block;color:rgba(244,242,236,.62);text-decoration:none;font-size:13.5px;padding:4px 0}
+.sc-foot a:hover{color:#f4f2ec}
+.sc-foot .sc-brand{color:#f4f2ec}
+.sc-foot p{font-size:13.5px;line-height:1.6;margin-top:12px;max-width:300px}
+.sc-foot .sc-legal{border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding-top:20px;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.sc-flag{position:fixed;right:12px;bottom:12px;z-index:60;background:#141418;color:#f4f2ec;font:500 11px Geist,sans-serif;padding:6px 10px;border-radius:999px;opacity:.85}
+
+@media (max-width:900px){
+  .sc-w{padding:0 16px}
+  .sc-links > a{display:none}
+  .sc-links{margin:0 0 0 auto}
+  .sc-dd{position:fixed;top:64px;left:8px;right:8px;width:auto;transform:none;grid-template-columns:1fr}
+  .sc-dd .sc-ddh,.sc-dd .sc-all{grid-column:auto}
+  .sc-foot .sc-cols{grid-template-columns:1fr 1fr}
+}
